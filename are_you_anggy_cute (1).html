@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Are You Anggy?</title>
+  <style>
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #ffe0f7);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #ff3399;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: pulseText 2s infinite;
+      text-shadow: 0 0 5px #fff, 0 0 10px #ff66cc;
+    }
+
+    @keyframes pulseText {
+      0%, 100% { color: #ff3399; }
+      50% { color: #ff99cc; }
+    }
+
+    .heart {
+      width: 200px;
+      animation: heartbeat 1s infinite;
+      margin: 20px;
+    }
+
+    .kitty {
+      width: 120px;
+      margin-top: 20px;
+      filter: drop-shadow(0 0 10px #ff99cc);
+    }
+
+    .bubble {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 192, 203, 0.4);
+      border-radius: 50%;
+      animation: float 10s infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Are you anggy? 💗</h1>
+  <img class="heart" src="heart_emmy.gif" alt="Heart for Anggy">
+  <img class="kitty" src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_Kitty_character_portrait.png" alt="Hello Kitty">
+
+  <!-- Floating bubbles for cute effect -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.style.left = Math.random() * 100 + "vw";
+      bubble.style.top = Math.random() * 100 + "vh";
+      bubble.style.animationDelay = (Math.random() * 10) + "s";
+      bubble.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>
